@@ -1,0 +1,334 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: monospace, serif;
+    background-color: #dfdce3;
+
+}
+
+
+table, th, td {
+    border: 2px solid #4abdac;
+    text-align: center;
+    background-color: white;
+    
+}
+table:hover{
+    box-shadow: 0px 16px 32px 0px rgba(0,0,0,0.8);
+}
+table{
+    transition: 0.5s;
+    box-shadow: 4px 16px 32px 4px rgba(0,0,0,0.2);
+}
+
+
+
+a, .btn-link {
+    color: #fc4a1a;
+}
+
+.btn-primary {
+    color: #f7b733;
+    background-color: #fc4a1a;
+    border-color: #fc4a1a;
+}
+
+app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    flex: 1;
+}
+
+.main .top-row {
+    background-color: #C6DABF;
+    border-bottom: 1px solid #88D498;
+    justify-content: flex-end;
+}
+
+.main .top-row > a, .main .top-row .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+}
+
+.main .top-row a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar {
+    background-color: #4abdac;
+}
+
+.sidebar .top-row {
+    background-color: rgb(74, 189, 172);
+
+}
+
+.sidebar .navbar-brand {
+    font-size: 24px;
+}
+
+.sidebar .oi {
+    width: 2rem;
+    font-size: 1.1rem;
+
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.sidebar .nav-item {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar .nav-item:first-of-type {
+    padding-top: 1rem;
+}
+
+.sidebar .nav-item:last-of-type {
+    padding-bottom: 1rem;
+}
+
+.sidebar .nav-item a {
+    color: #f7b733;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+}
+
+.sidebar .nav-item a.active {
+    background-color: rgba(112, 112, 112, 0.25);
+    color: #fc4a1a;
+}
+
+.sidebar .nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fc4a1a;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .main .top-row:not(.auth) {
+        display: none;
+    }
+
+    .main .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .main .top-row a, .main .top-row .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    app {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .main .top-row {
+        position: sticky;
+        top: 0;
+    }
+
+    .main > div {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .sidebar .collapse {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
+
+
+h1 {
+    font-size: 23px;
+}
+
+.form {
+    width: 300px;
+    padding: 64px 15px 24px;
+    margin: 0 auto;
+}
+.form .control {
+    margin: 0 0 24px;
+}
+.form .control input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-family: monospace, serif;
+    letter-spacing: 0.05em;
+    font-size: 16px;
+}
+.form .control input:hover, .form .control input:focus {
+    outline: none;
+    border: 0;
+}
+.form .btn {
+    width: 100%;
+    display: block;
+    padding: 14px 16px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.block-cube {
+    position: relative;
+}
+.block-cube .bg-top {
+    position: absolute;
+    height: 10px;
+    background: #1a936f;
+    background: linear-gradient(90deg, #c6dabf 0%, #88d498 37%, #1A936F 94%);
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg, 0);
+    margin: 0;
+}
+.block-cube .bg-top .bg-inner {
+    bottom: 0;
+}
+.block-cube .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #020024;
+    background: linear-gradient(90deg, #c6dabf 0%, #88d498 37%, #1A936F 94%);
+}
+.block-cube .bg-right {
+    position: absolute;
+    background: #4abdac;
+    background: #4abdac;
+    top: -5px;
+    z-index: 0;
+    bottom: 5px;
+    width: 10px;
+    left: 100%;
+    transform: skew(0, -45deg);
+}
+.block-cube .bg-right .bg-inner {
+    left: 0;
+}
+.block-cube .bg .bg-inner {
+    transition: all 0.2s ease-in-out;
+}
+.block-cube .bg-inner {
+    background: #212121;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+}
+.block-cube .text {
+    position: relative;
+    z-index: 2;
+}
+.block-cube.block-input input {
+    position: relative;
+    z-index: 2;
+}
+.block-cube.block-input input:focus ~ .bg-right .bg-inner, .block-cube.block-input input:focus ~ .bg-top .bg-inner, .block-cube.block-input input:focus ~ .bg-inner .bg-inner {
+    top: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+.block-cube.block-input .bg-top,
+.block-cube.block-input .bg-right,
+.block-cube.block-input .bg {
+    background: rgba(255, 255, 255, 0.5);
+    transition: background 0.2s ease-in-out;
+}
+.block-cube.block-input .bg-right .bg-inner,
+.block-cube.block-input .bg-top .bg-inner {
+    transition: all 0.2s ease-in-out;
+}
+.block-cube.block-input:focus .bg-top,
+.block-cube.block-input:focus .bg-right,
+.block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,
+.block-cube.block-input:hover .bg-right,
+.block-cube.block-input:hover .bg {
+    background: rgba(0,212,152,0.8);
+}
+.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+    top: 100%;
+}
+.space{
+    margin-top: 200px;
+    align-content: center;
+    
+}

@@ -1,0 +1,134 @@
+@page "/Login"
+@using Assignment2.Login
+@namespace LoginComponent
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+@inject IUserService UserService
+
+<style>
+     *, ::after, ::before {
+       box-sizing: border-box;
+     }
+     
+     body {
+       
+       }
+       
+     
+     
+</style>
+<body>
+<AuthorizeView>
+    <NotAuthorized>
+        <form autocomplete='off' class='form'>
+            <div class='control'>
+                <h1>
+                    Please Sign In
+                </h1>
+            </div>
+            <div class='control block-cube block-input'>
+                <input name='username' placeholder='Username' type='text'@bind-value="username">
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+            </div>
+            <div class='control block-cube block-input'>
+                <input name='password' placeholder='Password' type='password' @bind-value="password">
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+            </div>
+            <button class='btn block-cube block-cube-hover' type='button'>
+                <div class='bg-top'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg-right'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='bg'>
+                    <div class='bg-inner'></div>
+                </div>
+                <div class='text'>
+                    <a href="" @onclick="PerformLogin">
+                        <button class="btn btn-outline-dark" type="submit">Log in</button>
+                    </a>
+                </div>
+            </button>
+
+        </form>
+
+
+    </NotAuthorized>
+
+    <Authorized>
+        <div class="container, space" onclick="">
+            <div class="top"></div>
+            <div class="bottom"></div>
+
+            <h2 >
+                We are sad to see you leave
+            </h2>
+
+            <a href="" @onclick="PerformLogout">
+                <button type="submit">Log out</button>
+            </a>
+
+        </div>
+
+    </Authorized>
+</AuthorizeView>
+</body>
+
+
+@code {
+    private string username;
+    private string password;
+    private string errorMessage;
+
+    public async Task PerformLogin()
+    {
+        errorMessage = "";
+        try
+        {
+            ((CustomAuthentication) AuthenticationStateProvider).ValidateLogin(username, password);
+            username = "";
+            password = "";
+        }
+        catch (Exception e)
+        {
+            errorMessage = "User is not registered";
+        }
+    }
+
+    public async Task PerformLogout()
+    {
+        errorMessage = "";
+        username = "";
+        password = "";
+        try
+        {
+            ((CustomAuthentication) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("/Login");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+}
